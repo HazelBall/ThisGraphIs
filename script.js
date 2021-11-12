@@ -1,5 +1,6 @@
+var canvas = document.getElementById("graph");
+var chart;
 function getGraph() {
-    var canvas = document.getElementById("graph");
     canvas.width  = window.innerWidth/2;
     var xyValues = [
         {x:50, y:7},
@@ -15,7 +16,7 @@ function getGraph() {
         {x:150, y:15}
       ];
       
-      new Chart("graph", {
+      chart = new Chart("graph", {
         type: "scatter",
         data: {
           datasets: [{
@@ -31,4 +32,9 @@ function getGraph() {
             }
         }
       });
+}
+
+function remove() {
+    chart.destroy();
+    getGraph();
 }
