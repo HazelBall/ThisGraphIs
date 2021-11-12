@@ -47,4 +47,5 @@ canvas {
     position: fixed;
     bottom: 0;
     padding: 10px;
+    font-size: 10px;
 }
