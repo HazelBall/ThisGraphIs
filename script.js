@@ -1,4 +1,6 @@
 function getGraph() {
+    var canvas = document.getElementById("graph");
+    canvas.width  = window.innerWidth/2;
     var xyValues = [
         {x:50, y:7},
         {x:60, y:8},
