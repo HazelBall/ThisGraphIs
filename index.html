@@ -3,12 +3,13 @@
     <title>This Graph Is ___</title>
     <link rel = "stylesheet" type = "text/css" href = "style.css">
 </head>
-<body>
+<body onload="getGraph()">
     <h1 id = "title">This Graph Is _____</h1>
     <div id = "graph-container">
         <!--
             Where the graph will be displayed and updated.
         -->
+        <canvas id="graph"></canvas>
     </div>
     <div id = "reaction-container">
         <!--
@@ -22,6 +23,7 @@
             <li id="react-laugh">XD</li>
             <li id="vote-remove">This graph makes no sense.</li>
         </ul>
+        <button onclick = "getGraph()" disabled>Next</button>
     </div>
     <div id = "navigation">
         <!--
@@ -33,4 +35,5 @@
         <a href="statement.html" class="nav-item">Why does it Exist?</a>
         <a href="artist.html" class="nav-item">Who made it?</a>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </body>
