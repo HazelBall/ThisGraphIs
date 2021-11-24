@@ -1,5 +1,3 @@
-import { initializeApp } from 'firebase/app';
-import { } from 'firebase/database';
 
 // Set the configuration for your app
 // TODO: Replace with your project's config object
@@ -51,3 +49,4 @@ function remove() {
     chart.destroy();
     getGraph();
 }
+
