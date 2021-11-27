@@ -1,4 +1,7 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js'
 
+// Add Firebase products that you want to use
+import { getDatabase } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js"
 // Set the configuration for your app
 // TODO: Replace with your project's config object
 const firebaseConfig = {

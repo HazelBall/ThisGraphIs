@@ -10,7 +10,7 @@
     <link rel = "stylesheet" type = "text/css" href = "style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onload="getGraph()">
+<body>
     <h1 id = "title">This Graph Is ___</h1>
     <div id = "graph-container">
         <!--
@@ -29,7 +29,7 @@
             <li id="react-angry">>:(</li>
             <li id="react-laugh">XD</li>
         </ul>
-        <p id="vote-remove" onclick = "remove()">This graph makes no sense.</p>
+        <p id="vote-remove">This graph makes no sense.</p>
         <button onclick = "getGraph()" disabled>Next</button>
     </div>
     <div id = "navigation">
@@ -42,16 +42,6 @@
         <a href="statement.html" class="nav-item">Why does it Exist?</a>
         <a href="artist.html" class="nav-item">Who made it?</a>
     </div>
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js'
-    
-        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-        import { analytics } from 'https://www.gstatic.com/firebasejs/9.4.1/firebase-analytics.js'
-    
-        // Add Firebase products that you want to use
-        import { auth } from 'https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js'
-        import { } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-database.js"
-      </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="script.js"></script>
     <script src="createGraph.js"></script>
