@@ -23,18 +23,25 @@ function getGraph() {
       data: {
         labels: data.xData,
         datasets: [{
-          label: data.xLabel,
+          label: data.yLabel,
           fill: true,
           lineTension: 0,
           data: data.yData
         }]
       },
       options: {
-        plugins: {
-          legend: {display: false},
-          title: {
-            display: true,
-            text: data.title
+        scales : {
+          x: {
+            title: {
+              text: data.xLabel,
+              display: true
+            }
+          },
+          y: {
+            title: {
+              text: data.yLabel,
+              display: true
+            }
           }
         }
       }
