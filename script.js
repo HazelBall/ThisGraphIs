@@ -1,29 +1,45 @@
 var canvas = document.getElementById("graph");
 var chart;
+
 function getGraph() {
-    canvas.width  = window.innerWidth/2;
-    var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-    var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+  canvas.width  = window.innerWidth/2;
+  graphID = null;
+  data = null;
+  db.collection("graphs").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if(localStorage.getItem(doc.id) == null || localStorage.getItem(doc.id) == false) {
+        graphID = doc.id;
+        data = doc.data();
+        localStorage.setItem("currentGraph", doc.id);
+        // Uncomment this when the full app is ready/creating graphs is complete
+        //localStorage.setItem(graphID, true);
+      }
+    });
+    console.log(data);
+    console.log(data.title);
       
     chart = new Chart("graph", {
-        type: "line",
-        data: {
-          labels: xValues,
-          datasets: [{
-            fill: false,
-            lineTension: 0,
-            backgroundColor: "rgba(0,0,255,1.0)",
-            borderColor: "rgba(0,0,255,0.1)",
-            data: yValues
-          }]
-        },
-        options: {
+      type: "line",
+      data: {
+        labels: data.xData,
+        datasets: [{
+          label: data.xLabel,
+          fill: true,
+          lineTension: 0,
+          data: data.yData
+        }]
+      },
+      options: {
+        plugins: {
           legend: {display: false},
-          scales: {
-            yAxes: [{ticks: {min: 6, max:16}}],
+          title: {
+            display: true,
+            text: data.title
           }
         }
-      });
+      }
+    });
+  });
 }
 
 function remove() {

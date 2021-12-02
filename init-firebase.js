@@ -7,11 +7,8 @@ var firebaseConfig = {
     messagingSenderId: "442066372663",
     appId: "1:442066372663:web:aeb3ed81833b0494e897b2",
     measurementId: "G-QKYE2MK2F5"
-  };
+};
+firebase.initializeApp(firebaseConfig);
   
-  firebase.initializeApp(firebaseConfig);
-  
-  // Get a reference to the database service
-  var database = getDatabase(app);
-
-  
+// Get a reference to the database service
+var db = firebase.firestore();
