@@ -15,10 +15,9 @@ function getGraph() {
         //localStorage.setItem(graphID, true);
       }
     });
-    console.log(data);
-    console.log(data.title);
       
-    chart = new Chart("graph", {
+    var ctx = document.getElementById("graph");
+    chart = new Chart(ctx, {
       type: "line",
       data: {
         labels: data.xData,
@@ -30,23 +29,39 @@ function getGraph() {
         }]
       },
       options: {
+        legend: {
+          display: false
+        },
+        tooltips: {
+          enabled: false
+        },
+        title: {
+          display: true,
+          text: 'TEST',
+          fontSize: 24
+        },
         scales : {
-          x: {
-            title: {
-              text: data.xLabel,
+          xAxes: [{
+            scaleLabel: {
+              labelString: data.xLabel,
               display: true
             }
-          },
-          y: {
-            title: {
-              text: data.yLabel,
-              display: true
+          }],
+          yAxes: [{
+            scaleLabel: {
+              labelString: data.yLabel,
+              display: true,
             }
-          }
+          }]
         }
       }
     });
   });
+}
+
+function clearStorage() {
+  localStorage.clear();
+  remove();
 }
 
 function remove() {
@@ -54,3 +69,35 @@ function remove() {
     getGraph();
 }
 
+function reactToGraph(reaction) {
+  react = {
+    happy : 0,
+    sad : 1,
+    angry : 2,
+    laugh : 3,
+    confused : 4,
+    report : -1
+  };
+  switch(reaction) {
+    case react.happy :
+      break;
+    case react.sad :
+      break;
+    case react.angry :
+      break;
+    case react.laugh :
+      break;
+    case react.confused :
+      break;
+    case react.report :
+      report();
+      break;
+  }
+  // happy: 0, sad: 1
+}
+
+function report() {
+  id = localStorage.getItem("currentGraph");
+  console.log(id);
+  // remove();
+}

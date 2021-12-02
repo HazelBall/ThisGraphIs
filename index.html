@@ -2,8 +2,7 @@
 <!--
     ThisGraphIs.com
     Created by Hunter Ball for ISTA 301, Fall 2021;
-    Not really copyrighted since there's nothing special this does. If you want
-    to use code from this, have fun and be safe!
+    Not really copyrighted since there's nothing special this does. If you want to use code from this, have fun and be safe!
 -->
 <head>
     <title>This Graph Is?</title>
@@ -24,13 +23,15 @@
         -->
         <p>How does this graph make you feel?</p>
         <ul id = "reactions">
-            <li id="react-happy">:)</li>
-            <li id="react-sad">:(</li>
-            <li id="react-angry">>:(</li>
-            <li id="react-laugh">XD</li>
+            <li><button id="react-happy"    onclick="reactToGraph(0)">&#128516;</button></li>
+            <li><button id="react-sad"      onclick="reactToGraph(1)">&#128557;</button></li>
+            <li><button id="react-angry"    onclick="reactToGraph(2)">&#128545;</button></li>
+            <li><button id="react-laugh"    onclick="reactToGraph(3)">&#128514;</button></li>
+            <li><button id="react-confused" onclick="reactToGraph(4)">&#10067;</button></li>
         </ul>
-        <p id="vote-remove">This graph makes no sense.</p>
-        <button onclick = "getGraph()" disabled>Next</button>
+        <a id="vote-remove" onclick="reactToGraph(-1)">This graph is inappropriate.</a>
+        <button onclick="getGraph()" disabled>Next</button>
+        <button onclick="clearStorage()">TEST: Clear Cookies</button>
     </div>
     <div id = "navigation">
         <!--
