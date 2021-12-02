@@ -1,54 +1,103 @@
-/*
-import { initializeApp } from 'firebase/app';
-import { } from "firebase/database";
-
-// Set the configuration for your app
-// TODO: Replace with your project's config object
-const firebaseConfig = {
-  apiKey: "apiKey",
-  authDomain: "projectId.firebaseapp.com",
-  // For databases not in the us-central1 location, databaseURL will be of the
-  // form https://[databaseName].[region].firebasedatabase.app.
-  // For example, https://your-database-123.europe-west1.firebasedatabase.app
-  databaseURL: "https://databaseName.firebaseio.com",
-  storageBucket: "bucket.appspot.com"
-};
-
-const app = initializeApp(firebaseConfig);
-
-// Get a reference to the database service
-const database = getDatabase(app);
-*/
-
 var canvas = document.getElementById("graph");
 var chart;
+
 function getGraph() {
-    canvas.width  = window.innerWidth/2;
-    var xValues = [50,60,70,80,90,100,110,120,130,140,150];
-    var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+  canvas.width  = window.innerWidth/2;
+  graphID = null;
+  data = null;
+  db.collection("graphs").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      if(localStorage.getItem(doc.id) == null || localStorage.getItem(doc.id) == false) {
+        graphID = doc.id;
+        data = doc.data();
+        localStorage.setItem("currentGraph", doc.id);
+        // Uncomment this when the full app is ready/creating graphs is complete
+        //localStorage.setItem(graphID, true);
+      }
+    });
       
-    chart = new Chart("graph", {
-        type: "line",
-        data: {
-          labels: xValues,
-          datasets: [{
-            fill: false,
-            lineTension: 0,
-            backgroundColor: "rgba(0,0,255,1.0)",
-            borderColor: "rgba(0,0,255,0.1)",
-            data: yValues
-          }]
+    var ctx = document.getElementById("graph");
+    chart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: data.xData,
+        datasets: [{
+          label: data.yLabel,
+          fill: true,
+          lineTension: 0,
+          data: data.yData
+        }]
+      },
+      options: {
+        legend: {
+          display: false
         },
-        options: {
-          legend: {display: false},
-          scales: {
-            yAxes: [{ticks: {min: 6, max:16}}],
-          }
+        tooltips: {
+          enabled: false
+        },
+        title: {
+          display: true,
+          text: 'TEST',
+          fontSize: 24
+        },
+        scales : {
+          xAxes: [{
+            scaleLabel: {
+              labelString: data.xLabel,
+              display: true
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              labelString: data.yLabel,
+              display: true,
+            }
+          }]
         }
-      });
+      }
+    });
+  });
+}
+
+function clearStorage() {
+  localStorage.clear();
+  remove();
 }
 
 function remove() {
     chart.destroy();
     getGraph();
+}
+
+function reactToGraph(reaction) {
+  react = {
+    happy : 0,
+    sad : 1,
+    angry : 2,
+    laugh : 3,
+    confused : 4,
+    report : -1
+  };
+  switch(reaction) {
+    case react.happy :
+      break;
+    case react.sad :
+      break;
+    case react.angry :
+      break;
+    case react.laugh :
+      break;
+    case react.confused :
+      break;
+    case react.report :
+      report();
+      break;
+  }
+  // happy: 0, sad: 1
+}
+
+function report() {
+  id = localStorage.getItem("currentGraph");
+  console.log(id);
+  // remove();
 }
