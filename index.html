@@ -23,14 +23,14 @@
         -->
         <p>How does this graph make you feel?</p>
         <ul id = "reactions">
-            <li><button id="react-happy"    onclick="reactToGraph(0)">&#128516;</button></li>
-            <li><button id="react-sad"      onclick="reactToGraph(1)">&#128557;</button></li>
-            <li><button id="react-angry"    onclick="reactToGraph(2)">&#128545;</button></li>
-            <li><button id="react-laugh"    onclick="reactToGraph(3)">&#128514;</button></li>
-            <li><button id="react-confused" onclick="reactToGraph(4)">&#10067;</button></li>
+            <li><button class="react-button" id="react-happy"    onclick="reactToGraph(this)">&#128516;</button><span id="num-react-happy"    ></span></li>
+            <li><button class="react-button" id="react-sad"      onclick="reactToGraph(this)">&#128557;</button><span id="num-react-sad"      ></span></li>
+            <li><button class="react-button" id="react-angry"    onclick="reactToGraph(this)">&#128545;</button><span id="num-react-angry"    ></span></li>
+            <li><button class="react-button" id="react-laugh"    onclick="reactToGraph(this)">&#128514;</button><span id="num-react-laugh"    ></span></li>
+            <li><button class="react-button" id="react-confused" onclick="reactToGraph(this)">&#10067;</button> <span id="num-react-confused" ></span></li>
         </ul>
-        <a id="vote-remove" onclick="reactToGraph(-1)">This graph is inappropriate.</a>
-        <button onclick="getGraph()" disabled>Next</button>
+        <a id="react-remove" onclick="report()">This graph is inappropriate.</a>
+        <button id = "nextGraph" onclick="nextGraph()" disabled>Next</button>
         <button onclick="clearStorage()">TEST: Clear Cookies</button>
     </div>
     <div id = "navigation">

@@ -27,16 +27,15 @@ canvas {
     color: #404040;
     font-size: 25px;
 }
-#reaction-container ul li.disabled {
-    color: #808080;
+#reaction-container ul li button {
+    font-size: 25px;
 }
-#reaction-container ul li.disabled:hover {
-    color: #808080;
-    cursor:auto;
+#reaction-container ul li button.selected {
+    background-color: red;
 }
-#reaction-container ul li:hover, #vote-remove:hover {
-    color: black;
-    cursor: pointer;
+#reaction-container ul li span {
+    display: inline-block;
+    padding-right: 5px;
 }
 #vote-remove {
     font-size: 10px;
