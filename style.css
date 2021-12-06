@@ -48,3 +48,8 @@ canvas {
     padding: 10px;
     font-size: 10px;
 }
+
+div.text {
+    padding: 20px;
+    width: 50%
+}

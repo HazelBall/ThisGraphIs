@@ -30,9 +30,8 @@
             <li><button class="react-button" id="react-laugh"    onclick="reactToGraph(this)">&#128514;</button><span id="num-react-laugh"    ></span></li>
             <li><button class="react-button" id="react-confused" onclick="reactToGraph(this)">&#10067;</button> <span id="num-react-confused" ></span></li>
         </ul>
-        <a id="react-remove" onclick="report()">This graph is inappropriate.</a>
-        <button id = "nextGraph" onclick="nextGraph()" disabled>Next</button>
-        <button onclick="clearStorage()">TEST: Clear Cookies</button>
+        <button id = "nextGraph" onclick="nextGraph()" disabled>Find New Graph</button>
+        <button id = "createGraph" onclick="createGraph()" disabled>Create New Graph</button>
     </div>
     <div id = "navigation">
         <!--
@@ -40,9 +39,7 @@
             of the page, but I'll keep them here for now until I figure out
             what I do want to add.
         -->
-        <a href="#" class="nav-item">What Is This?</a>
-        <a href="#" class="nav-item">Why does it Exist?</a>
-        <a href="#" class="nav-item">Who made it?</a>
+        <a href="statement.html" class="nav-item">What Is This? Why does it Exist? Who made it?</a>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
